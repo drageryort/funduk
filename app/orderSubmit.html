@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, width=device-width, maximum-scale=1, minimum-scale=1">
+	<title>Order page submit</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+</head>
+<body>
+	<div id="cube-loader">
+		<div class="preloaderWrapper">
+			<img src="images/header/preload.svg">
+			<div class="wBall" id="wBall_1">
+				<div class="wInnerBall"></div>
+			</div>
+			<div class="wBall" id="wBall_2">
+				<div class="wInnerBall"></div>
+			</div>
+			<div class="wBall" id="wBall_3">
+				<div class="wInnerBall"></div>
+			</div>
+			<div class="wBall" id="wBall_4">
+				<div class="wInnerBall"></div>
+			</div>
+			<div class="wBall" id="wBall_5">
+				<div class="wInnerBall"></div>
+			</div>
+		</div>
+	</div>
+	<header class="orderPage">
+		<div class="headerTopWrapper" >
+			<div class="headerTop">
+				<div class="logo">
+					<svg width="140" height="43" fill="none" xmlns="https://www.w3.org/2000/svg">
+						<path d="M16.32 12.928c-11.888 0-14.185 5.878-13.639 13.64C3.293 35.161 16.32 40.2 16.32 40.2s13.028-5.046 13.64-13.64c.553-7.755-1.759-13.633-13.64-13.633z" fill="#000"/>
+						<path d="M15.379 42.636a36.514 36.514 0 01-7.502-4.147c-2.109-1.524-3.822-3.165-5.087-4.876C1.157 31.43.25 29.122.08 26.746c-.39-5.48.626-9.322 3.202-12.083 2.72-2.921 6.985-4.34 13.04-4.34 6.055 0 10.321 1.419 13.04 4.34 2.57 2.761 3.585 6.602 3.195 12.083-.165 2.37-1.077 4.678-2.698 6.862-1.27 1.711-2.983 3.352-5.087 4.876a36.515 36.515 0 01-7.506 4.147l-.94.364-.947-.36z" fill="#fff"/>
+						<path d="M17.26 42.636a36.51 36.51 0 007.506-4.147c2.109-1.524 3.822-3.165 5.087-4.876 1.62-2.184 2.53-4.493 2.697-6.862.39-5.487-.625-9.329-3.198-12.09-2.719-2.92-6.985-4.34-13.04-4.34V43l.947-.364z" fill="#F8B75C"/>
+						<path d="M15.776 41.612c-.568-.22-13.926-5.498-14.604-14.932-.363-5.167.56-8.745 2.91-11.27 2.5-2.684 6.504-3.99 12.237-3.99 5.733 0 9.736 1.313 12.237 3.99 2.35 2.525 3.274 6.103 2.906 11.265-.673 9.439-14.03 14.719-14.603 14.932l-.545.21-.538-.205z" fill="#014C1E"/>
+						<path d="M16.32 12.928c-11.888 0-14.185 5.878-13.639 13.64C3.293 35.161 16.32 40.2 16.32 40.2s13.028-5.046 13.64-13.64c.553-7.755-1.759-13.633-13.64-13.633z" fill="#BE5B34"/>
+						<path d="M16.32 12.928c-8.566 0-10.233 4.388-9.834 10.174.441 6.414 9.833 10.173 9.833 10.173s9.392-3.774 9.834-10.173c.399-5.786-1.269-10.174-9.834-10.174z" fill="#D36D3B"/>
+						<path d="M15.174 34.763c5.07.164 5.867 2.523 2.012 5.077.337.602.833.367.833.367l7.853-5.196s-7.02-1.3-10.698-.248z" fill="#014C1E"/>
+						<path d="M8.217 15.119c2.314.528 4.682.787 7.055.77a30.703 30.703 0 007.056-.77c-1.836-1.39-4.156-2.156-7.052-2.156s-5.216.766-7.06 2.156z" fill="#BE5B34"/>
+						<path d="M9.162 13.947c2.377.252 4.767.374 7.158.364 2.39.01 4.78-.112 7.157-.364-1.87-.656-4.22-1.017-7.157-1.017-2.938 0-5.289.36-7.158 1.017z" fill="#D36D3B"/>
+						<path d="M31.095 20.544a19.645 19.645 0 01-.492 4.963c-1.039.985-2.23 1.536-3.506 1.524-4.313-.034-7.975-6.441-8.182-14.311-.078-3.01.36-5.795 1.172-8.09 6.05 1.346 10.802 7.975 11.008 15.914z" fill="#014C1E"/>
+						<path d="M30.763 22.495c-.205-.647.474-1.274.141-1.868-.106-2.741-.426-5.382-1.764-7.664A13.472 13.472 0 0024.5 8.16l-3.988 6.2-3.97.277-1.884.316L3.135 25.578l.044.53c.015.177.036.364.067.574l.015.125v.034a11.019 11.019 0 004.867 7.646c1.422.92 2.883 1.385 4.338 1.385.778.002 1.55-.14 2.276-.418l.638-.131c2.298-.73 3.636.231 5.54.023 1.654-.18 2.55 1.191 3.885 1.191 1.064 0 3.336-2.901 3.336-2.901l-.784.03c3.306-2.875 4.64-7.26 3.406-11.171z" fill="#014C1E"/>
+						<path d="M30.835 22.593c-1.554-4.923-7.162-7.533-12.526-5.838-5.364 1.695-8.454 7.056-6.892 11.978.686 2.174 3.876 3.403 5.774 4.504.813.471 7.397 4.028 10.636-.832 2.827-2.47 4.132-6.256 3.008-9.812z" fill="#D36D3B"/>
+						<path d="M28.078 17.885c.308 1.407.428 2.848.356 4.286-.765.993-1.735 1.641-2.87 1.828-3.833.629-8.11-4.25-9.553-10.893-.551-2.54-.609-4.97-.258-7.035 5.589.212 10.87 5.111 12.325 11.814z" fill="#014C1E"/>
+						<path d="M29.7 20.292c-1.064-5.877-9.595-7.303-9.392-5.548l-5.047.844-10.665 9.845c.31 3.72 3.012 6.307 6.29 7.805a7.784 7.784 0 012-.873l4.265-.492s9.268 1.192 10.909-.543c1.89-1.987 2.953-4.614 2.722-7.403a9.19 9.19 0 00-1.081-3.635z" fill="#D36D3B"/>
+						<path d="M20.137 20.084l-.328.031a17.676 17.676 0 013.938.19 12.524 12.524 0 00-3.61-.221z" fill="#D36D3B"/>
+						<path d="M30.183 21.418c0 1.56-.21 3.115-.62 4.62-1.04.875-2.217 1.336-3.463 1.269-4.204-.226-7.598-6.383-7.58-13.752 0-2.817.512-5.403 1.368-7.512 5.863 1.526 10.305 7.94 10.295 15.375z" fill="#D36D3B"/>
+						<path d="M11.01 23.203s1.412-.854 8.486 2.486c1.679.793 8.293-3.137 3.466-7.452-3.905.526-5.277-.44-5.277-.44l-6.675 5.406z" fill="#BE5B34"/>
+						<path d="M24.66 18.016s5.213 4.772 0 8.303c2.461-.143 5.36-1.17 4.35-4.173-1.01-3.002-4.35-4.13-4.35-4.13z" fill="#BE5B34"/>
+						<path d="M19.944 19.604a3.336 3.336 0 11-6.4 1.83l5.777-2.907c.273.316.485.682.623 1.076z" fill="#014C1E"/>
+						<path d="M7.935 22.749l4.927 7.466-8.237-4.787 3.31-2.68z" fill="#F79E53"/>
+						<path d="M17 22.575a.64.64 0 10-.234-1.258.64.64 0 00.234 1.258z" fill="#fff"/>
+						<path d="M21.823 31.099s1.913.453 4.642-.194c-2.561 2.404-5.12 3.61-9.285 2.329a19.801 19.801 0 004.643-2.135z" fill="#BE5B34"/>
+						<path d="M21.19 31.403s1.282 1.453 3.863 2.448c-3.462.564-7.876.702-8.852-3.282 1.619.496 3.296.777 4.988.834z" fill="#BE5B34"/>
+						<path d="M15.781 21.764a.32.32 0 10-.117-.63.32.32 0 00.117.63z" fill="#fff"/>
+						<path d="M6.213 24.655L4.551 25.72l.077.657a10.009 10.009 0 004.594 6.948c.904.576 5.661.268 6.436-.126-3.41-1.555-9.445-8.544-9.445-8.544z" fill="#F79E53"/>
+						<path d="M27.155 17.741c-.684-3.336-2.927-6.005-5.742-6.737a11.749 11.749 0 00-.791 4.345v.305c2.335.042 4.606.767 6.533 2.087z" fill="#014C1E"/>
+						<path d="M6.433 24.419L4.55 25.433l.077.942a9.714 9.714 0 004.287 6.749c3.326 2.148 6.003.876 6.741.073-3.408-1.553-9.223-8.778-9.223-8.778zM18.077 17.888l-1.436-.318-5.631 5.633 7.067-5.315z" fill="#F79E53"/>
+						<path d="M18.882 27.688c-2.366.984-3.807 1.72-6.563 1.028-2.099-.526-4.649-2.683-5.881-4.297-.218.236-.565.428-.722.656-3.416 4.923 6.863 8.679 7.923 8.774.803.072-.15-1.352 1.54-.304 1.52-1.097 5.349-.059 7.16-1.555 2.322-1.923.644-6.022-3.457-4.302z" fill="#F79E53"/><path d="M9.051 28.229a.466.466 0 10-.488-.794.466.466 0 00.488.794zM10.96 26.979a.464.464 0 10-.484-.792.464.464 0 00.485.792zM9.245 26.271a.466.466 0 10-.489-.794.466.466 0 00.489.794z" fill="#014C1E"/>
+						<path d="M20.348 14.745c-.165.03-4.463 1.391-4.463 1.391L6.575 24.34l-1.951 1.093 10.662-9.845 5.06-.843z" fill="#F8B75C"/>
+						<path d="M19.96 13.72l3.517.225-2.882 1.384 2.882-.212-1.955 1.395-2.028-.7.466-2.091z" fill="#D36D3B"/>
+						<path d="M4.652 27.904a1.313 1.313 0 001.245.666l.418-3.687-2.098 1.032.059.5c.076.508.202 1.007.376 1.49zM22.294 9.003s-1.5 2.043-1.552 4.632c.89-.096 1.516-1.132 1.516-1.132s-.036-1.51.036-3.5zM25.05 30.42c1.558-.94 3.696-1.372 4.521-1.815 1.666-.893 1.815-1.566 1.876-4.05.092-3.793-2.973-5.77-6.787-6.539 2.496 1.277 4.52 2.449 4.691 6.154.155 3.36-2.157 5.124-4.3 6.25zM11.01 23.203l6.673-5.404 1.17 1.494-7.843 3.91z" fill="#014C1E"/>
+						<path d="M22.959 18.237l-5.277-.438 1.17 1.494 4.107-1.056zM25.05 30.42l5.388-.757.663-1.768.136-2.993-2.141 2.76-2.418 1.901-1.627.857zM15.496 32.99s2.896-3.519 3.745-3.898c.525-.234 1.08-.354 1.58-.203 1.112.328 1.275 2.267-1.313 2.44-1.903.126-4.012 1.662-4.012 1.662z" fill="#014C1E"/>
+						<path d="M30.399 28.736c-.023 1.245-2.798 4.033-5.151 4.086.556.7 1.19 1.019 1.872.984 4.59-4.184 3.288-5.566 3.279-5.07z" fill="#014C1E"/>
+						<path d="M15.496 32.991l2.535-2.336c.532-.493 1.733-1.101 2.424-.87 1.076.292 1.176 1.5-1.221 1.659-1.776.118-3.738 1.547-3.738 1.547z" fill="#fff"/>
+						<path d="M14.04 5.837l.843-3.131-.017 1.685.629-.43v.79l-.014 1.44 1.499-1.432h.272l-.023 2.953h-.776l.013-1.444-1.497 1.434H14.7l.023-2.379-.684.514z" fill="#014C1E"/>
+						<path d="M16.65 6.934l1.784-4.965-.251 2.732 1.076-.614-.118 1.279h.012L18.938 7.7l2.932-2.44s-1.008 2.987-1.562 5.017l.215-2.342-3.088 2.471.389-4.24-1.174.768zM15.497 32.99c-.205.267.028.972 1.34.073a30.99 30.99 0 011.238-.072l.208-.634s-2.348.068-2.786.634z" fill="#F79E53"/>
+						<path d="M18.853 32.362s-2.79.76-3.346.76c-.389.666 1.3 1.385 1.611.087l1.735-.847z" fill="#F79E53"/>
+						<path d="M45.096 20.817V24.1h5.005v2.954h-5.005v6.322h-3.239V17.823h9.048v2.993l-5.809.002zM61.807 17.823v10.656a5.608 5.608 0 01-.37 2.088 4.631 4.631 0 01-1.026 1.587 4.413 4.413 0 01-1.564 1.006 6.174 6.174 0 01-4.29-.079 4.21 4.21 0 01-1.552-1.148 4.621 4.621 0 01-.882-1.687 7.154 7.154 0 01-.28-2.01V17.823h3.217v10.501c-.022.524.123 1.041.413 1.477.276.387.734.581 1.374.581a1.68 1.68 0 001.698-1.742V17.823h3.262zM71.613 33.372L68.73 28.19l-1.698-3.282-.067.023v8.444h-3.237V17.823h2.858l2.546 4.647 2.034 3.753.067-.023v-8.377h3.216v15.549h-2.837z" fill="#fff"/>
+						<path d="M81.665 17.823a5.679 5.679 0 012.674.58c.738.388 1.278 1.029 1.62 1.922.228.62.353 1.273.37 1.933.036.766.055 1.619.055 2.558 0 1.356-.008 2.504-.023 3.446a7.2 7.2 0 01-.407 2.422c-.166.475-.42.915-.748 1.296a3.52 3.52 0 01-1.062.82 5 5 0 01-1.313.436c-.482.09-.972.135-1.463.134h-4.84V17.823h5.137zm1.496 6.462c0-.433-.022-.866-.067-1.297a3.71 3.71 0 00-.279-1.105 1.749 1.749 0 00-.625-.76 1.948 1.948 0 00-1.106-.28h-1.339v9.54h1.362c.82 0 1.366-.21 1.64-.626.275-.417.413-.99.414-1.72v-3.752zM98.084 17.823v10.656a5.608 5.608 0 01-.369 2.088 4.631 4.631 0 01-1.027 1.587 4.412 4.412 0 01-1.564 1.006 6.174 6.174 0 01-4.289-.079c-.6-.257-1.13-.65-1.552-1.148a4.622 4.622 0 01-.883-1.687 7.154 7.154 0 01-.279-2.01V17.823h3.216v10.501a2.48 2.48 0 00.414 1.477c.275.387.733.581 1.373.581a1.68 1.68 0 001.698-1.742V17.823h3.262zM103.375 23.587a9.51 9.51 0 00.402-.637c.133-.23.327-.552.582-.963.253-.409.591-.941 1.016-1.596.424-.656.994-1.512 1.71-2.57h3.838l-4.334 6.366 2.324 4.595a711.075 711.075 0 002.344 4.594h-3.656c-.52-1.03-1.023-2.058-1.507-3.088-.485-1.03-.988-2.064-1.508-3.104l-1.313 2.033v4.154h-3.246V17.823h3.239v5.764h.109zM112.271 33.372v-3.53h3.395v3.53h-3.395zM126.924 17.823v10.656a5.602 5.602 0 01-.369 2.088 4.643 4.643 0 01-1.029 1.594 4.412 4.412 0 01-1.564 1.006 6.174 6.174 0 01-4.289-.08 4.21 4.21 0 01-1.552-1.148 4.624 4.624 0 01-.883-1.687 7.155 7.155 0 01-.279-2.01V17.823h3.216v10.501c-.022.524.123 1.041.414 1.477.275.387.733.581 1.373.581a1.677 1.677 0 001.587-1.076c.082-.213.12-.44.111-.666V17.823h3.264zM135.545 30.192h-3.687c-.135.521-.272 1.05-.413 1.586a94.568 94.568 0 01-.435 1.587h-3.418l4.496-15.542h3.216l4.489 15.549h-3.488l-.76-3.18zm-2.524-5.116l-.441 2.24h2.233l-.428-2.21L133.76 22h-.112l-.627 3.075z" fill="#F8B75C"/>
+					</svg>
+				</div>
+				<div class="phoneWrapper">
+					<p>
+						Горячая линия:
+					</p>
+					<a href="tel:0800210903">0 800 210 903</a>
+					<svg width="9" height="6" fill="none" xmlns="https://www.w3.org/2000/svg">
+						<path d="M8.074 1.482l-.361-.361a.617.617 0 00-.438-.178.59.59 0 00-.434.178L4.499 3.463 2.158 1.12a.59.59 0 00-.434-.178.617.617 0 00-.438.178l-.357.361a.598.598 0 00-.183.439c0 .173.061.318.183.433l3.137 3.137c.115.122.26.183.433.183.17 0 .317-.061.439-.183l3.136-3.137a.59.59 0 00.179-.433.617.617 0 00-.179-.439z" fill="#fff"/>
+					</svg>
+					<div class="phoneDetailWindowWrapper">
+						<div class="phoneDetailWindow">
+							<span class="arrowTriangle"></span>
+							<a href="tel:0800213903" class="titlePhone">0800 213 903</a>
+							<div class="contactInfoAndPhone">
+								<a href="tel:0800210904">0800 210 904</a>
+								<span>Бесплатно со всех операторов</span>
+							</div>
+							<div class="contactInfoAndPhone">
+								<a href="tel:+380981893501">+380 (98) 189-35-01</a>
+								<span>Сервисный центрв</span>
+							</div>
+							<div class="contactInfoAndPhone">
+								<a href="#">Контактная информация</a>
+							</div>
+							<button class="orderCall">
+								Заказать звонок
+							</button>
+							<div class="addressInfo">
+								<span>
+									График работы:
+								</span>
+							</div>
+							<div class="addressInfo">
+								<span>
+									Контакт-центр:
+								</span>
+								<span>
+									Пн-Вс 09:00-21:00
+								</span>
+							</div>
+							<div class="addressInfo">
+								<span>
+									Магазин:
+								</span>
+								<span>
+									Пн-Вс 10:00-21:00
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<div class="scrollup">
+			<img src="images/header/chevrons-up.svg" alt="">
+		</div>
+	</header>
+	<main class="orderSubmitPageWrapper">
+		<div class="orderSubmitPage">
+			<div class="submitIcon">
+				<img src="images/cart/successIcon.svg" alt="">
+			</div>
+			<h4>
+				Ваш заказ принят!
+			</h4>
+			<p class="orederNumber">
+				№ заказа: 30589
+			</p>
+			<div class="orderDetailsBlockWrapper">
+				<div class="orderDetailsBlock">
+					<p class="orderDetailsBlockEl">
+						<span class="orderDetailsBlockElTitle">
+							Способ доставки: 
+						</span>
+						<span class="orderDetailsBlockElContent">
+							Самовывоз
+						</span>
+					</p>
+					<p class="orderDetailsBlockEl">
+						<span class="orderDetailsBlockElTitle">
+							Способ оплаты:
+						</span>
+						<span class="orderDetailsBlockElContent">
+							Наличный расчет при получении
+						</span>
+					</p>
+				</div>
+				<p class="orderNote">
+					Если окно с платежной информацией не открылось автоматически, нажмите на кнопку
+				</p>
+				<a href="#" class="payButton">
+					Оплатить заказ
+				</a>
+			</div>
+			<a href="/" class="moveToMainButton likeAButton">
+				Перейти на главную
+			</a>
+			<div class="orderInfoBlock">
+				<p>
+					<img src="images/cart/infoButton.svg" alt="">
+						Информация о заказе и данные для входа в личный кабинет отправлены Вам на E-mail
+				</p>
+				<p>
+					<img src="images/cart/percentIcon.svg" alt="">
+						Для подтверждения заказа может потребоваться звонок нашего менеджера. После обработки заказа вы получите СМС уведомление и письмо на E-mail.
+				</p>
+				<p>
+					<img src="images/cart/infoButton.svg" alt="">
+					Будет начисленно 
+					<span>
+						55 
+					</span>
+					бонусов
+				</p>
+			</div>
+		</div>
+		<div class="interestedBlockWrapper">
+			<h3>
+				Вас может это заинтересовать!
+			</h3>
+			<div class="interestedBlockContent">
+				<div class="catalogSliderElWrapper">
+					<div class="productCardIcon">
+						<div class="productImage">
+							<div class="scrollImage">
+								<div class="imageWrapper">
+									<img alt="" src="images/compare/mouse.png">
+								</div>
+								<div class="imageWrapper">	
+									<img alt="" class="lazyload" data-src="images/compare/mouseHover.png">	
+								</div>		
+							</div>
+							<div class="labels">
+								<p class="newCome active">
+									Новинка
+								</p>
+								<p class="present">
+									Подарок
+								</p>
+								<p class="sale">
+									Скидка
+								</p>
+								<p class="sale">
+									Уценка
+								</p>
+								<p class="deffect">
+									Витринный товар
+								</p>
+								<p class="deffect active">
+									Дефект упаковки
+								</p>
+							</div>
+							<div class="rightColumn">
+								<div class="colors">
+									<div class="selected">
+										<a href="#" style="background: #1F1F1F"></a>
+									</div>
+									<div>
+										<a href="#" style="background: #CCCCCC"></a>
+									</div>
+									<div>
+										<a href="#" style="background: #FF8D8D"></a>
+									</div>
+									<div>
+										<a href="#" style="background: #06BFE8"></a>
+									</div>
+									<div>	
+										<a href="#" style="background: #92E806"></a>
+									</div>
+								</div>	
+							</div>
+							<div class="credit">
+								<img alt="" src="images/compare/credit.svg">
+								<p class="amount">
+									7
+								</p>
+							</div>
+						</div>
+						<div class="bottomSector">
+							<div class="leftCol">
+								<div class="rateStar">
+									<img src="images/card/activeStar.svg" alt="">
+									<img src="images/card/activeStar.svg" alt="">
+									<img src="images/card/activeStar.svg" alt="">
+									<img src="images/card/activeStar.svg" alt="">
+								</div>
+								<p>
+									4 отзыва
+								</p>
+							</div>
+							<div class="credit">
+								<img alt="" src="images/compare/credit.svg">
+								<p class="amount">
+									7
+								</p>
+							</div>
+						</div>
+						<h4 class="title">
+							Razer Mamba Ultra Pro Vision Limited Edition Wireless Ergonomic Professional Gaming Mouse
+						</h4>
+						<p class="productCode">
+							Код товара: <span>101 234</span>
+						</p>
+						<div class="priceBlock">
+							<div class="leftCol">
+								<div class="prevPriceBlock">
+									<p class="prevPrice">
+										950 000 <span>грн</span>
+									</p>
+									<p class="minusPercent">
+										-10%
+									</p>
+								</div>
+								<h3>
+									855 000 <span>грн</span>
+								</h3>
+							</div>	
+							<div class="rightCol">
+								<img alt="" src="images/compare/coin.svg">
+								<p>
+									+150
+								</p>
+							</div>
+						</div>
+						<div class="buttonBlock buy">
+							<button class="cartButton">
+								<img alt="" src="images/compare/shop-cart.svg">
+								<span>Купить</span>
+							</button>
+							<div class="rightCol">
+								<svg width="40" height="40" fill="none" xmlns="https://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0)">
+										<path d="M29.77 18.688h-.423s-2.23-4.275-2.252-4.303a.635.635 0 00-.546-.311h-5.276v-2.466c0-.44-.33-.796-.77-.796H19.47c-.44 0-.822.357-.822.796v2.466h-5.144a.635.635 0 00-.546.31c-.022.029-2.252 4.303-2.252 4.303h-.344c-.438 0-.862.319-.862.756v.517a3.938 3.938 0 007.875 0v-.517c0-.437-.292-.756-.73-.756h-.423l-1.74-3.34h4.166v11.216H14.22c-.44 0-.822.356-.822.795v1.034c0 .44.382.796.822.796h11.534c.44 0 .769-.357.769-.796v-1.034c0-.44-.33-.796-.77-.796h-4.48V15.348h4.298l-1.74 3.34h-.344c-.438 0-.862.319-.862.756v.517a3.938 3.938 0 007.875 0v-.517c0-.437-.292-.756-.73-.756zm-14.983 0h-2.646l1.323-2.541 1.323 2.54zm10.479 0l1.323-2.541 1.323 2.54h-2.646z" fill="#DADADA"/>
+									</g>
+									<defs>
+										<clipPath id="clip0">
+											<path fill="#fff" transform="translate(9.5 9.5)" d="M0 0h21v21H0z"/>
+										</clipPath>
+									</defs>
+								</svg>
+								<svg width="40" height="40" fill="none" xmlns="https://www.w3.org/2000/svg">
+									<path d="M28.43 15.317a5.334 5.334 0 00-1.167-1.698 5.44 5.44 0 00-3.823-1.554 5.477 5.477 0 00-3.439 1.211 5.476 5.476 0 00-3.44-1.212 5.44 5.44 0 00-3.822 1.555 5.3 5.3 0 00-1.597 3.788c0 .682.14 1.394.416 2.118.232.605.564 1.233.988 1.866.673 1.003 1.598 2.049 2.746 3.11a30.691 30.691 0 003.868 3.02l.486.312a.659.659 0 00.708 0l.486-.312a31.097 31.097 0 003.867-3.02c1.149-1.061 2.074-2.107 2.746-3.11a9.38 9.38 0 00.989-1.866 5.936 5.936 0 00.416-2.118 5.221 5.221 0 00-.428-2.09z" fill="#DADADA"/>
+								</svg>
+							</div>
+						</div>
+						<div class="detailedBlock">
+							<h3>
+								Характеристики
+							</h3>
+							<p>Дисплей (диагональ):
+								<span>
+									5.8
+								</span>
+							</p>
+							<p>Дисплей (макс. разрешение): 
+								<span>
+									2436x1125
+								</span>
+							</p>
+							<p>Дисплей (тип матрицы): 
+								<span>
+									Super Retina (OLED)
+								</span>
+							</p>
+							<p>Встроенная память: 
+								<span>
+									512 гб
+								</span>
+							</p>																				
+							<p>Оперативная память (объем): 
+								<span>
+									3 гб
+								</span>
+							</p>
+						</div>
+					</div>	
+				</div>
+				<div class="catalogSliderElWrapper">
+					<div class="productCardIcon">
+						<div class="productImage">
+							<div class="scrollImage">
+								<div class="imageWrapper">
+									<img alt="" src="images/compare/mouse.png">
+								</div>
+								<div class="imageWrapper">	
+									<img alt="" class="lazyload" data-src="images/compare/mouseHover.png">	
+								</div>	
+							</div>
+							<div class="labels">
+								<p class="newCome active">
+									Новинка
+								</p>
+								<p class="present">
+									Подарок
+								</p>
+								<p class="sale">
+									Скидка
+								</p>
+								<p class="sale">
+									Уценка
+								</p>
+								<p class="deffect">
+									Витринный товар
+								</p>
+								<p class="deffect active">
+									Дефект упаковки
+								</p>
+							</div>
+							<div class="rightColumn">
+								<div class="colors">
+									<div class="selected">
+										<a href="#" style="background: #1F1F1F"></a>
+									</div>
+									<div>
+										<a href="#" style="background: #CCCCCC"></a>
+									</div>
+									<div>
+										<a href="#" style="background: #FF8D8D"></a>
+									</div>
+									<div>
+										<a href="#" style="background: #06BFE8"></a>
+									</div>
+									<div>	
+										<a href="#" style="background: #92E806"></a>
+									</div>
+								</div>	
+							</div>
+							<div class="credit">
+								<img alt="" src="images/compare/credit.svg">
+								<p class="amount">
+									7
+								</p>
+							</div>
+						</div>
+						<div class="bottomSector">
+							<div class="leftCol">
+								<div class="rateStar">
+									<img src="images/card/activeStar.svg" alt="">
+									<img src="images/card/activeStar.svg" alt="">
+									<img src="images/card/activeStar.svg" alt="">
+									<img src="images/card/activeStar.svg" alt="">
+								</div>
+								<p>
+									4 отзыва
+								</p>
+							</div>
+							<div class="credit">
+								<img alt="" src="images/compare/credit.svg">
+								<p class="amount">
+									7
+								</p>
+							</div>
+						</div>
+						<h4 class="title">
+							Razer Mamba Ultra Pro Vision Limited Edition Wireless Ergonomic Professional Gaming Mouse
+						</h4>
+						<p class="productCode">
+							Код товара: <span>101 234</span>
+						</p>
+						<div class="priceBlock">
+							<div class="leftCol">
+								<div class="prevPriceBlock">
+									<p class="prevPrice">
+										950 000 <span>грн</span>
+									</p>
+									<p class="minusPercent">
+										-10%
+									</p>
+								</div>
+								<h3>
+									855 000 <span>грн</span>
+								</h3>
+							</div>	
+							<div class="rightCol">
+								<img alt="" src="images/compare/coin.svg">
+								<p>
+									+150
+								</p>
+							</div>
+						</div>
+						<div class="buttonBlock buy">
+							<button class="cartButton">
+								<img alt="" src="images/compare/shop-cart.svg">
+								<span>Купить</span>
+							</button>
+							<div class="rightCol">
+								<svg width="40" height="40" fill="none" xmlns="https://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0)">
+										<path d="M29.77 18.688h-.423s-2.23-4.275-2.252-4.303a.635.635 0 00-.546-.311h-5.276v-2.466c0-.44-.33-.796-.77-.796H19.47c-.44 0-.822.357-.822.796v2.466h-5.144a.635.635 0 00-.546.31c-.022.029-2.252 4.303-2.252 4.303h-.344c-.438 0-.862.319-.862.756v.517a3.938 3.938 0 007.875 0v-.517c0-.437-.292-.756-.73-.756h-.423l-1.74-3.34h4.166v11.216H14.22c-.44 0-.822.356-.822.795v1.034c0 .44.382.796.822.796h11.534c.44 0 .769-.357.769-.796v-1.034c0-.44-.33-.796-.77-.796h-4.48V15.348h4.298l-1.74 3.34h-.344c-.438 0-.862.319-.862.756v.517a3.938 3.938 0 007.875 0v-.517c0-.437-.292-.756-.73-.756zm-14.983 0h-2.646l1.323-2.541 1.323 2.54zm10.479 0l1.323-2.541 1.323 2.54h-2.646z" fill="#DADADA"/>
+									</g>
+									<defs>
+										<clipPath id="clip0">
+											<path fill="#fff" transform="translate(9.5 9.5)" d="M0 0h21v21H0z"/>
+										</clipPath>
+									</defs>
+								</svg>
+								<svg width="40" height="40" fill="none" xmlns="https://www.w3.org/2000/svg">
+									<path d="M28.43 15.317a5.334 5.334 0 00-1.167-1.698 5.44 5.44 0 00-3.823-1.554 5.477 5.477 0 00-3.439 1.211 5.476 5.476 0 00-3.44-1.212 5.44 5.44 0 00-3.822 1.555 5.3 5.3 0 00-1.597 3.788c0 .682.14 1.394.416 2.118.232.605.564 1.233.988 1.866.673 1.003 1.598 2.049 2.746 3.11a30.691 30.691 0 003.868 3.02l.486.312a.659.659 0 00.708 0l.486-.312a31.097 31.097 0 003.867-3.02c1.149-1.061 2.074-2.107 2.746-3.11a9.38 9.38 0 00.989-1.866 5.936 5.936 0 00.416-2.118 5.221 5.221 0 00-.428-2.09z" fill="#DADADA"/>
+								</svg>
+							</div>
+						</div>
+						<div class="detailedBlock">
+							<h3>
+								Характеристики
+							</h3>
+							<p>Дисплей (диагональ):
+								<span>
+									5.8
+								</span>
+							</p>
+							<p>Дисплей (макс. разрешение): 
+								<span>
+									2436x1125
+								</span>
+							</p>
+							<p>Дисплей (тип матрицы): 
+								<span>
+									Super Retina (OLED)
+								</span>
+							</p>
+							<p>Встроенная память: 
+								<span>
+									512 гб
+								</span>
+							</p>																				
+							<p>Оперативная память (объем): 
+								<span>
+									3 гб
+								</span>
+							</p>
+						</div>
+					</div>	
+				</div>
+				<div class="catalogSliderElWrapper">
+					<div class="productCardIcon">
+						<div class="productImage">
+							<div class="scrollImage">
+								<div class="imageWrapper">
+									<img alt="" src="images/compare/mouse.png">
+								</div>
+								<div class="imageWrapper">	
+									<img alt="" class="lazyload" data-src="images/compare/mouseHover.png">	
+								</div>	
+							</div>
+							<div class="labels">
+								<p class="newCome active">
+									Новинка
+								</p>
+								<p class="present">
+									Подарок
+								</p>
+								<p class="sale">
+									Скидка
+								</p>
+								<p class="sale">
+									Уценка
+								</p>
+								<p class="deffect">
+									Витринный товар
+								</p>
+								<p class="deffect active">
+									Дефект упаковки
+								</p>
+							</div>
+							<div class="rightColumn">
+								<div class="colors">
+									<div class="selected">
+										<a href="#" style="background: #1F1F1F"></a>
+									</div>
+									<div>
+										<a href="#" style="background: #CCCCCC"></a>
+									</div>
+									<div>
+										<a href="#" style="background: #FF8D8D"></a>
+									</div>
+									<div>
+										<a href="#" style="background: #06BFE8"></a>
+									</div>
+									<div>	
+										<a href="#" style="background: #92E806"></a>
+									</div>
+								</div>	
+							</div>
+							<div class="credit">
+								<img alt="" src="images/compare/credit.svg">
+								<p class="amount">
+									7
+								</p>
+							</div>
+						</div>
+						<div class="bottomSector">
+							<div class="leftCol">
+								<div class="rateStar">
+									<img src="images/card/activeStar.svg" alt="">
+									<img src="images/card/activeStar.svg" alt="">
+									<img src="images/card/activeStar.svg" alt="">
+									<img src="images/card/activeStar.svg" alt="">
+								</div>
+								<p>
+									4 отзыва
+								</p>
+							</div>
+							<div class="credit">
+								<img alt="" src="images/compare/credit.svg">
+								<p class="amount">
+									7
+								</p>
+							</div>
+						</div>
+						<h4 class="title">
+							Razer Mamba Ultra Pro Vision Limited Edition Wireless Ergonomic Professional Gaming Mouse
+						</h4>
+						<p class="productCode">
+							Код товара: <span>101 234</span>
+						</p>
+						<div class="priceBlock">
+							<div class="leftCol">
+								<div class="prevPriceBlock">
+									<p class="prevPrice">
+										950 000 <span>грн</span>
+									</p>
+									<p class="minusPercent">
+										-10%
+									</p>
+								</div>
+								<h3>
+									855 000 <span>грн</span>
+								</h3>
+							</div>	
+							<div class="rightCol">
+								<img alt="" src="images/compare/coin.svg">
+								<p>
+									+150
+								</p>
+							</div>
+						</div>
+						<div class="buttonBlock buy">
+							<button class="cartButton">
+								<img alt="" src="images/compare/shop-cart.svg">
+								<span>Купить</span>
+							</button>
+							<div class="rightCol">
+								<svg width="40" height="40" fill="none" xmlns="https://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0)">
+										<path d="M29.77 18.688h-.423s-2.23-4.275-2.252-4.303a.635.635 0 00-.546-.311h-5.276v-2.466c0-.44-.33-.796-.77-.796H19.47c-.44 0-.822.357-.822.796v2.466h-5.144a.635.635 0 00-.546.31c-.022.029-2.252 4.303-2.252 4.303h-.344c-.438 0-.862.319-.862.756v.517a3.938 3.938 0 007.875 0v-.517c0-.437-.292-.756-.73-.756h-.423l-1.74-3.34h4.166v11.216H14.22c-.44 0-.822.356-.822.795v1.034c0 .44.382.796.822.796h11.534c.44 0 .769-.357.769-.796v-1.034c0-.44-.33-.796-.77-.796h-4.48V15.348h4.298l-1.74 3.34h-.344c-.438 0-.862.319-.862.756v.517a3.938 3.938 0 007.875 0v-.517c0-.437-.292-.756-.73-.756zm-14.983 0h-2.646l1.323-2.541 1.323 2.54zm10.479 0l1.323-2.541 1.323 2.54h-2.646z" fill="#DADADA"/>
+									</g>
+									<defs>
+										<clipPath id="clip0">
+											<path fill="#fff" transform="translate(9.5 9.5)" d="M0 0h21v21H0z"/>
+										</clipPath>
+									</defs>
+								</svg>
+								<svg width="40" height="40" fill="none" xmlns="https://www.w3.org/2000/svg">
+									<path d="M28.43 15.317a5.334 5.334 0 00-1.167-1.698 5.44 5.44 0 00-3.823-1.554 5.477 5.477 0 00-3.439 1.211 5.476 5.476 0 00-3.44-1.212 5.44 5.44 0 00-3.822 1.555 5.3 5.3 0 00-1.597 3.788c0 .682.14 1.394.416 2.118.232.605.564 1.233.988 1.866.673 1.003 1.598 2.049 2.746 3.11a30.691 30.691 0 003.868 3.02l.486.312a.659.659 0 00.708 0l.486-.312a31.097 31.097 0 003.867-3.02c1.149-1.061 2.074-2.107 2.746-3.11a9.38 9.38 0 00.989-1.866 5.936 5.936 0 00.416-2.118 5.221 5.221 0 00-.428-2.09z" fill="#DADADA"/>
+								</svg>
+							</div>
+						</div>
+						<div class="detailedBlock">
+							<h3>
+								Характеристики
+							</h3>
+							<p>Дисплей (диагональ):
+								<span>
+									5.8
+								</span>
+							</p>
+							<p>Дисплей (макс. разрешение): 
+								<span>
+									2436x1125
+								</span>
+							</p>
+							<p>Дисплей (тип матрицы): 
+								<span>
+									Super Retina (OLED)
+								</span>
+							</p>
+							<p>Встроенная память: 
+								<span>
+									512 гб
+								</span>
+							</p>																				
+							<p>Оперативная память (объем): 
+								<span>
+									3 гб
+								</span>
+							</p>
+						</div>
+					</div>	
+				</div>
+				<div class="catalogSliderElWrapper">
+					<div class="productCardIcon">
+						<div class="productImage">
+							<div class="scrollImage">
+								<div class="imageWrapper">
+									<img alt="" src="images/compare/mouse.png">
+								</div>
+								<div class="imageWrapper">	
+									<img alt="" class="lazyload" data-src="images/compare/mouseHover.png">	
+								</div>	
+							</div>
+							<div class="labels">
+								<p class="newCome active">
+									Новинка
+								</p>
+								<p class="present">
+									Подарок
+								</p>
+								<p class="sale">
+									Скидка
+								</p>
+								<p class="sale">
+									Уценка
+								</p>
+								<p class="deffect">
+									Витринный товар
+								</p>
+								<p class="deffect active">
+									Дефект упаковки
+								</p>
+							</div>
+							<div class="rightColumn">
+								<div class="colors">
+									<div class="selected">
+										<a href="#" style="background: #1F1F1F"></a>
+									</div>
+									<div>
+										<a href="#" style="background: #CCCCCC"></a>
+									</div>
+									<div>
+										<a href="#" style="background: #FF8D8D"></a>
+									</div>
+									<div>
+										<a href="#" style="background: #06BFE8"></a>
+									</div>
+									<div>	
+										<a href="#" style="background: #92E806"></a>
+									</div>
+								</div>	
+							</div>
+							<div class="credit">
+								<img alt="" src="images/compare/credit.svg">
+								<p class="amount">
+									7
+								</p>
+							</div>
+						</div>
+						<div class="bottomSector">
+							<div class="leftCol">
+								<div class="rateStar">
+									<img src="images/card/activeStar.svg" alt="">
+									<img src="images/card/activeStar.svg" alt="">
+									<img src="images/card/activeStar.svg" alt="">
+									<img src="images/card/activeStar.svg" alt="">
+								</div>
+								<p>
+									4 отзыва
+								</p>
+							</div>
+							<div class="credit">
+								<img alt="" src="images/compare/credit.svg">
+								<p class="amount">
+									7
+								</p>
+							</div>
+						</div>
+						<h4 class="title">
+							Razer Mamba Ultra Pro Vision Limited Edition Wireless Ergonomic Professional Gaming Mouse
+						</h4>
+						<p class="productCode">
+							Код товара: <span>101 234</span>
+						</p>
+						<div class="priceBlock">
+							<div class="leftCol">
+								<div class="prevPriceBlock">
+									<p class="prevPrice">
+										950 000 <span>грн</span>
+									</p>
+									<p class="minusPercent">
+										-10%
+									</p>
+								</div>
+								<h3>
+									855 000 <span>грн</span>
+								</h3>
+							</div>	
+							<div class="rightCol">
+								<img alt="" src="images/compare/coin.svg">
+								<p>
+									+150
+								</p>
+							</div>
+						</div>
+						<div class="buttonBlock buy">
+							<button class="cartButton">
+								<img alt="" src="images/compare/shop-cart.svg">
+								<span>Купить</span>
+							</button>
+							<div class="rightCol">
+								<svg width="40" height="40" fill="none" xmlns="https://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0)">
+										<path d="M29.77 18.688h-.423s-2.23-4.275-2.252-4.303a.635.635 0 00-.546-.311h-5.276v-2.466c0-.44-.33-.796-.77-.796H19.47c-.44 0-.822.357-.822.796v2.466h-5.144a.635.635 0 00-.546.31c-.022.029-2.252 4.303-2.252 4.303h-.344c-.438 0-.862.319-.862.756v.517a3.938 3.938 0 007.875 0v-.517c0-.437-.292-.756-.73-.756h-.423l-1.74-3.34h4.166v11.216H14.22c-.44 0-.822.356-.822.795v1.034c0 .44.382.796.822.796h11.534c.44 0 .769-.357.769-.796v-1.034c0-.44-.33-.796-.77-.796h-4.48V15.348h4.298l-1.74 3.34h-.344c-.438 0-.862.319-.862.756v.517a3.938 3.938 0 007.875 0v-.517c0-.437-.292-.756-.73-.756zm-14.983 0h-2.646l1.323-2.541 1.323 2.54zm10.479 0l1.323-2.541 1.323 2.54h-2.646z" fill="#DADADA"/>
+									</g>
+									<defs>
+										<clipPath id="clip0">
+											<path fill="#fff" transform="translate(9.5 9.5)" d="M0 0h21v21H0z"/>
+										</clipPath>
+									</defs>
+								</svg>
+								<svg width="40" height="40" fill="none" xmlns="https://www.w3.org/2000/svg">
+									<path d="M28.43 15.317a5.334 5.334 0 00-1.167-1.698 5.44 5.44 0 00-3.823-1.554 5.477 5.477 0 00-3.439 1.211 5.476 5.476 0 00-3.44-1.212 5.44 5.44 0 00-3.822 1.555 5.3 5.3 0 00-1.597 3.788c0 .682.14 1.394.416 2.118.232.605.564 1.233.988 1.866.673 1.003 1.598 2.049 2.746 3.11a30.691 30.691 0 003.868 3.02l.486.312a.659.659 0 00.708 0l.486-.312a31.097 31.097 0 003.867-3.02c1.149-1.061 2.074-2.107 2.746-3.11a9.38 9.38 0 00.989-1.866 5.936 5.936 0 00.416-2.118 5.221 5.221 0 00-.428-2.09z" fill="#DADADA"/>
+								</svg>
+							</div>
+						</div>
+						<div class="detailedBlock">
+							<h3>
+								Характеристики
+							</h3>
+							<p>Дисплей (диагональ):
+								<span>
+									5.8
+								</span>
+							</p>
+							<p>Дисплей (макс. разрешение): 
+								<span>
+									2436x1125
+								</span>
+							</p>
+							<p>Дисплей (тип матрицы): 
+								<span>
+									Super Retina (OLED)
+								</span>
+							</p>
+							<p>Встроенная память: 
+								<span>
+									512 гб
+								</span>
+							</p>																				
+							<p>Оперативная память (объем): 
+								<span>
+									3 гб
+								</span>
+							</p>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="order">
+		<div class="trademarkWrapper">
+			<div class="trademark">
+				<p>
+					© 2019 Интернет-магазин Funduk.ua
+				</p>
+			</div>
+		</div>
+	</footer>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+	<script src="js/jquery.maskedinput.min.js"></script>
+	<script src="js/imageuploadify.js"></script>
+	<script src="js/rater.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

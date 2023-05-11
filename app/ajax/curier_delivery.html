@@ -1,0 +1,33 @@
+
+<p class="deliverySubListTitle">Выберите адресс доставки</p>
+<ul class="deliverySubList">
+	<li class="deliverySubListEl">
+		<label>
+			<input type="radio" name="delivery2" checked>
+			<span class="radioButton"></span>
+			<span class="name">
+				ул. Кирилловская, 134а, оф.203
+			</span>
+		</label>	
+	</li>
+	<li class="deliverySubListEl">
+		<label>
+			<input type="radio" name="delivery2">
+			<span class="radioButton"></span>
+			<span class="name">
+				Новый адресс
+			</span>
+		</label>
+		<div class="subListContent">
+			<div class="inputWrapper">
+				<input type="text" name="street" class="validateField" placeholder="улица" required>
+			</div>
+			<div class="inputWrapper half">
+				<input type="text" name="house" placeholder="дом и корпус" class="validateField" required>
+			</div>
+			<div class="inputWrapper half">	
+				<input type="number" name="flat" placeholder="квартира или офис" class="validateField" required>
+			</div>
+		</div>	
+	</li>
+</ul>

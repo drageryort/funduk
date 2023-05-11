@@ -1,0 +1,84 @@
+<form class="leaveCommnetBlock small_comment validate">
+	<div class="leftColumnCommentModal">
+		<div class="leftColumnCommentModalEl">
+			<p class="leftColumnCommentModalElName">
+				Оцените товар
+			</p>
+			<div class="rateWrapper">
+		    	<div class="comment-rate"></div>
+		    	<input id="comment" type="text">
+			</div>
+		</div>
+		<div class="leftColumnCommentModalEl">
+			<p class="leftColumnCommentModalElName">
+				Напишите отзыв
+			</p>
+			<div class="inputWrapper">
+				<textarea rows="3" name ="requiredTextField" placeholder="Я пользуюсь этим товаром и могу сказать..."></textarea>
+			</div>
+		</div>
+		<div class="leftColumnCommentModalEl">
+			<p class="leftColumnCommentModalElName">
+				Достоинства
+			</p>
+			<div class="inputWrapper">
+				<textarea rows="1" name="positive" placeholder="Меня порадовало"></textarea>
+			</div>
+		</div>
+		<div class="leftColumnCommentModalEl">
+			<p class="leftColumnCommentModalElName">
+				Недостатки
+			</p>
+			<div class="inputWrapper">
+				<textarea rows="1" name="negative" placeholder="Мне не понравилось"></textarea>
+			</div>
+		</div>
+		<div class="leftColumnCommentModalEl">
+			<p class="leftColumnCommentModalElName">
+				Ваше имя
+			</p>
+			<div class="inputWrapper">
+				<input type="text" name="name" placeholder="Например, Анна">
+			</div>
+		</div>
+		<div class="leftColumnCommentModalEl">
+			<p class="leftColumnCommentModalElName">
+				Эл. почта
+			</p>
+			<div class="inputWrapper">
+				<input type="email" name="email" placeholder="Например, example@gmail.com">
+			</div>
+		</div>
+		<div class="submitBlock">
+			<label>
+				<input type="checkbox" name="agreement">
+				<span>
+					Уведомлять об ответах по эл. почте
+				</span>
+			</label>
+			<div class="buttonBlock">
+				<button class="sendComment">
+					Оставить отзыв
+				</button>
+				<button class="sendCancel closeBlock">
+					Отмена
+				</button>
+			</div>
+		</div>							
+	</div>
+	<div class="rightColumnCommentModal">
+		<p class="proposition">
+			Хотите, чтобы Ваш отзыв стал круче остальных? Добавьте к нему фото или видео.
+		</p>
+		<label class="youtubeLink">
+			<img src="images/card/youtubeIcon.svg" alt="">
+			<input type="url" name="youTubeUrl" placeholder="Вставьте ссылку на видео">
+		</label>
+		<div class="addImagesWrapper">
+			<img src="images/card/addImage.svg" alt="">
+			<div class="addImages">
+				<input type="file" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+			</div>
+		</div>
+	</div>		
+</form> 

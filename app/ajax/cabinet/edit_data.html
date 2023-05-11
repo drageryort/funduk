@@ -1,0 +1,105 @@
+<div class="tabsBlock personalDataTab">	
+	<form class="correctionOfPersonalDataWrapper validate">
+		<h4>
+			Редактирование личных данных
+		</h4>
+		<div class="addPhoto">
+			<img class="singleImage" alt="your image"  src="../../../images/cabinet/defaultPhoto.png" >
+			<label class="labelForInputFile">Загрузить фото
+				<input type="file" name="user photo" class="singleInput" />
+			</label>
+		</div>
+		<div class="personalDataForm">
+			<div class="personalInfoForm">
+				<label>
+					<span class="subTitle">
+						Имя и фамилия:
+					</span>
+					<input type="text" name="name" required placeholder="Например Сергей">
+				</label>
+				<label>
+					<span class="subTitle">
+						Email:
+					</span>
+					<input type="email" name="email" placeholder="example@gmail.com">
+				</label>
+				<label>
+					<span class="subTitle">
+						Телефон:
+					</span>
+					<input type="text" name="tel" class="tel" placeholder="+38 (0__) ___-__-__">
+				</label>	
+				<label class="data">
+					<span class="subTitle">
+						Дата рождения:
+					</span>
+					<input type="text" class="datepicker" name="birthday" placeholder="8/12/1991">
+				</label>
+				<label>
+					<span class="subTitle">
+						Пол:
+					</span>
+					<select name="sex" class="select">
+						<option>Мужской</option>
+						<option>Женский</option>
+					</select>
+				</label>
+				<label>
+					<span class="subTitle">
+						У меня есть ребенок
+					</span>
+					<select name="kids" class="select">
+						<option>Да</option>
+						<option>Нет</option>
+					</select>
+				</label>
+			</div>
+			<h4>
+				Адрес:
+			</h4>
+			<ol class="adresses"></ol>
+			<p class="openAdressForm third">Добавить адресс</p>
+			<div class="addressWrapper">
+				<span class="address">
+					<label>
+						<span class="subTitle">
+							Город:
+						</span>
+						<input type="text" name="user_city" placeholder=" Донецк" class="adressValidate">
+					</label>
+					<label>
+						<span class="subTitle">
+							Тип и название улицы:
+						</span>
+						<input type="text" name="user_street" placeholder="улица Строителей" class="adressValidate">
+					</label>
+					<label>
+						<span class="subTitle">
+							Дом/корпус:
+						</span>
+						<input type="text" name="user_house" placeholder="41 В" class="adressValidate">
+					</label>
+					<label>
+						<span class="subTitle">
+							Квартира/офис:
+						</span>
+						<input type="number" name="user_flat" placeholder="404">
+					</label>
+				</span>
+				<div class="buttonBlock">
+					<p class="save">
+						Добавить
+					</p>
+				</div>
+			</div>											
+		</div>
+		<div class="blockOfButtons">
+			<button class="save">
+				Сохранить
+			</button>
+			<p class="unsave third">
+				Отмена
+			</p>
+		</div>
+	</form>
+</div>
